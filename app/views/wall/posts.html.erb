@@ -1,7 +1,11 @@
 <div>
   <h4><%= flash[:alert] %></h4>
-  <%= link_to 'Sign up', '/user/signup' %>
-  <%= link_to 'Log in' , '/user/login' %>
+  <% if cookies[:user_id].nil? %>
+      <%= link_to 'Sign up', '/user/signup' %>
+      <%= link_to 'Log in', '/user/login' %>
+  <% else %>
+      <%= link_to 'Log out', '/user/logout' %>
+  <% end %>
 </div>
 
 <div style="background-color: #e9eaed;">
