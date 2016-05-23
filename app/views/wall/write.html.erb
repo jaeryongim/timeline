@@ -3,7 +3,8 @@
 <div style="background-color:#e9eaed;">
   <h1>Write Post</h1>
   <%= form_tag '/wall/write_complete', method: 'post' do %>
-    Name: <input type="text" name="writer" placeholder="What's your name?" style= "font-size: 13px";><br>
+    Name: <input type="text" style= "font-size: 13px; background-color: #e2e2e2;"
+                 name="writer" value="<%=@current_user.username%>" placeholder="What's your name?" readonly><br>
     Content: <br>
     <textarea name="content" cols="40" rows="5"  placeholder="Write something..." style="font-size: 12px";></textarea>
     <input type="submit" value="write">

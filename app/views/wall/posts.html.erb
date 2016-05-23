@@ -10,18 +10,23 @@
 
 <div style="background-color: #e9eaed;">
   <h1>Recent Posts</h1>
+  <!-- 게시글 출력 -->
   <% @posts.reverse.each do |post| %>
       <div style="background-color: #ffffff; width: 400px; border: 2px solid #d3d6db; padding: 10px; word-break: break-all;">
-        <h3 style="color: blue; font-size: 22px;"><%= post.name %></h3>
+        <h3 style="color: blue; font-size: 22px;"><%= post.name %> <span style="font-size: 10px; color: #000000"><%= post.updated_at.localtime %></span></h3>
         <p style="font-size: 15px;"><%= post.content %></p>
         <p style="text-align: right;"><%= link_to 'comment', "/wall/write_comment/#{post.id}" %></p>
         <p style="font-size: 90%; text-align: right;"><%= link_to 'edit', "/wall/edit/#{post.id}" %> <%= link_to 'delete', "/wall/delete/#{post.id}" %></p>
+        <!-- 게시글에 대한 코멘트 -->
         <% post.comments.each do |comment| %>
             <div style="background-color: #fafbfb; width: 390px; border: 1px solid #d3d6db; padding: 0px 5px 0px 5px; word-break: break-all; text-align: left;">
               <p style="font-size: 90%; text-align: left">
-                <span style="display:inline-block; color: #0000ff; width: 50px; font-weight: bold; font-size: 12px"><%= comment.name %> </span> : <span style="font-size: 12px;"><%= comment.content %></span></p>
+                <span style="display:inline-block; color: #0000ff; width: 50px;
+                    font-weight: bold; font-size: 12px"><%= comment.name %> </span> : <span style="font-size: 12px;"><%= comment.content %></span></p>
+                <span style="font-size: 11px; text-align: right"><%= comment.updated_at.localtime%></span>
             </div>
         <% end %>
+
       </div>
       <br>
   <% end %>
