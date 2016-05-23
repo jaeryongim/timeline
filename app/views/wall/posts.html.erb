@@ -6,11 +6,10 @@
         <p style="font-size: 15px;"><%= post.content %></p>
         <p style="text-align: right;"><%= link_to 'comment', "/wall/write_comment/#{post.id}" %></p>
         <p style="font-size: 90%; text-align: right;"><%= link_to 'edit', "/wall/edit/#{post.id}" %> <%= link_to 'delete', "/wall/delete/#{post.id}" %></p>
-
         <% post.comments.each do |comment| %>
             <div style="background-color: #fafbfb; width: 390px; border: 1px solid #d3d6db; padding: 0px 5px 0px 5px; word-break: break-all; text-align: left;">
               <p style="font-size: 90%; text-align: left">
-                <span style="color: #0000ff; font-weight: bold;"><%= comment.name %></span> <%= comment.content %></p>
+                <span style="display:inline-block; color: #0000ff; width: 50px; font-weight: bold; font-size: 12px"><%= comment.name %> </span> : <span style="font-size: 12px;"><%= comment.content %></span></p>
             </div>
         <% end %>
       </div>
