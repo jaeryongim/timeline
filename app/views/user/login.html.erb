@@ -1,13 +1,9 @@
-<div>
-  <h4><%= flash[:alert] %></h4>
-</div>
-
+<div><%= flash[:alert] %></div>
 <div style="background-color: #e9eaed;">
-  <h1>Sign Up</h1>
-  <%= form_tag '/user/signup_complete', method: 'post' do %>
+  <h1>Log In</h1>
+  <%= form_tag '/user/login_complete', method: 'post' do %>
       <p style="width: 300px"> Username : <input type="text" style="width: 200px" name="username" placeholder="Write Your Name..."></p>
       <p style="width: 300px"> Password : <input type="password" style="width: 205px" name="password" placeholder="Write Your Password..."></p>
-      <p style="width: 300px"> Password Confirm: <input type="password" style="width: 150px" name="password_confirm" placeholder="Again Your Password..."> </p>
-      <%= submit_tag 'Sign Up' %>
+      <div style="width: 290px; text-align: right"><p><%= submit_tag 'Log In' %></p></div>
   <% end %>
 </div>
