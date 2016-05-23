@@ -1,4 +1,6 @@
 class WallController < ApplicationController
+  before_action :login_check, except: [:posts]
+
   def posts
     @posts = Post.all
   end
