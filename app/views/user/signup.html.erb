@@ -1,3 +1,7 @@
+<div>
+  <h4><%= flash[:alert] %></h4>
+</div>
+
 <div style="background-color: #e9eaed;">
   <h1>Sign Up</h1>
   <%= form_tag '/user/signup_complete', method: 'post' do %>
@@ -7,3 +11,7 @@
       <%= submit_tag 'Sign Up' %>
   <% end %>
 </div>
+
+<% User.all.each do |user| %>
+    <p><%= user.username %></p>
+<% end %>
